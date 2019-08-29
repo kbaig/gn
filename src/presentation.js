@@ -1,35 +1,30 @@
-// Import React
 import React from 'react';
+import { Deck } from 'spectacle';
 
-// Import Spectacle Core tags
-import {
-  // BlockQuote,
-  // Cite,
-  Deck,
-  Heading,
-  // ListItem,
-  // List,
-  // Quote,
-  Slide,
-  Text
-} from 'spectacle';
-
-// Import theme
 import createTheme from 'spectacle/lib/themes/default';
 
-// Require CSS
+import TitleSlide from './components/partials/TitleSlide';
+import ContentSlide from './components/partials/ContentSlide';
+
+import Opener from './components/slides/Opener';
+
+import productMarketFit from './data/productMarketFit';
+import businessModel from './data/businessModel';
+import team from './data/team';
+import conclusion from './data/conclusion';
+
 require('normalize.css');
 
 const theme = createTheme(
   {
-    primary: 'white',
-    secondary: '#1F2022',
-    tertiary: '#03A9FC',
-    quaternary: '#CECECE'
+    primary: '#fefaef',
+    secondary: '#84bd5e',
+    tertiary: '#343e55',
+    quaternary: '#546287'
   },
   {
-    primary: 'Montserrat',
-    secondary: 'Helvetica'
+    primary: { name: 'Domine', googleFont: true },
+    secondary: { name: 'Source Sans Pro', googleFont: true }
   }
 );
 
@@ -41,14 +36,27 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
       >
-        <Slide transition={['zoom']} bgColor='primary'>
-          <Heading size={1} fit caps lineHeight={1} textColor='secondary'>
-            Spectacle Boilerplate
-          </Heading>
-          <Text margin='10px 0 0' textColor='tertiary' size={1} fit bold>
-            open the presentation/index.js file to get started
-          </Text>
-        </Slide>
+        <Opener />
+
+        <TitleSlide>Product-Market Fit</TitleSlide>
+        {productMarketFit.map((props, i) => (
+          <ContentSlide key={i} {...props} />
+        ))}
+
+        <TitleSlide>Business Model</TitleSlide>
+        {businessModel.map((props, i) => (
+          <ContentSlide key={i} {...props} />
+        ))}
+
+        <TitleSlide>Team</TitleSlide>
+        {team.map((props, i) => (
+          <ContentSlide key={i} {...props} />
+        ))}
+
+        <TitleSlide>Bottom Line</TitleSlide>
+        {conclusion.map((props, i) => (
+          <ContentSlide key={i} {...props} />
+        ))}
       </Deck>
     );
   }
