@@ -18,13 +18,15 @@ require('normalize.css');
 const theme = createTheme(
   {
     primary: '#fefaef',
-    secondary: '#84bd5e',
-    tertiary: '#343e55',
+    secondary: '#343e55',
+    tertiary: '#84bd5e',
     quaternary: '#546287'
   },
   {
-    primary: { name: 'Domine', googleFont: true },
-    secondary: { name: 'Source Sans Pro', googleFont: true }
+    // primary: { name: 'Domine', googleFont: true },
+    // secondary: { name: 'Source Sans Pro', googleFont: true }
+
+    primary: { name: 'Source Sans Pro', googleFont: true }
   }
 );
 

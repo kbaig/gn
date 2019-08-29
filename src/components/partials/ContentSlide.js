@@ -3,7 +3,7 @@ import { Slide, Heading, Layout, Fill, Text, Image } from 'spectacle';
 
 export default ({ title, bullets = [] }) => (
   <Slide transition={['zoom']} bgColor='primary'>
-    <Heading size={1} fit caps textColor='secondary'>
+    <Heading size={2} fit textColor='tertiary' margin='0 0 50px 0'>
       {title}
     </Heading>
     {bullets && (
